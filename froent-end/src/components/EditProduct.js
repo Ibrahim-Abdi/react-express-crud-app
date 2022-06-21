@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react'
 import axios from "axios";
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
  
 const EditProduct = () => {
+    let navigate = useNavigate();
     const [title, setTitle] = useState('');
     const [price, setPrice] = useState('');
-    const history = useHistory();
     const { id } = useParams();
  
     const updateProduct = async (e) => {
@@ -15,7 +15,7 @@ const EditProduct = () => {
             title: title,
             price: price
         });
-        history.push("/");
+        navigate("/");
     }
  
     useEffect(() => {

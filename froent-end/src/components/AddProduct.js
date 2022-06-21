@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import axios from "axios";
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
  
 const AddProduct = () => {
+    let navigate = useNavigate();
     const [title, setTitle] = useState('');
     const [price, setPrice] = useState('');
-    const history = useHistory();
  
     const saveProduct = async (e) => {
         e.preventDefault();
@@ -13,7 +13,7 @@ const AddProduct = () => {
             title: title,
             price: price
         });
-        history.push("/");
+        navigate("/");
     }
  
     return (
